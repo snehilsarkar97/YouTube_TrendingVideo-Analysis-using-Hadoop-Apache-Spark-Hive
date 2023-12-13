@@ -1,0 +1,835 @@
+CIS_5200_FinalTermproject_Group4
+Date of Creation: 12/11/2023
+Authors:Snehil Sarkar, Sapan Shah
+TERM:FALL 2023
+DataSet: https://www.kaggle.com/datasets/rsrishav/youtube-trending-video-dataset/data
+Github: https://github.com/ssarkar4/YouTube_TrendingVideos_DataSet
+
+
+
+--Upload Data into Hadoop & Create table using hive for all 7 Countries--
+
+---Brazil Start---
+
+scp C:/Users/ssarkar4/YouTube/BR_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube
+hdfs dfs -mkdir YouTube/BR
+hdfs dfs -put BR_youtube_trending_data.csv YouTube/BR
+hdfs dfs -ls YouTube/BR
+
+show databses;
+use ssarkar4;
+DROP TABLE IF EXISTS Brazil;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS Brazil(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category INT,
+Trending STRING,
+Tags STRING,
+View_count INT,
+Likes INT,
+Dislikes INT,
+Comments INT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/BR' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+---Brazil END---
+
+---Canada Start---
+
+scp C:/Users/ssarkar4/YouTube/CA_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/CA
+hdfs dfs -put CA_youtube_trending_data.csv YouTube/CA
+hdfs dfs -ls YouTube/CA
+
+
+
+use ssarkar4;
+DROP TABLE IF EXISTS Canada;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS Canada(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category BIGINT,
+Trending STRING,
+Tags STRING,
+View_count BIGINT,
+Likes BIGINT,
+Dislikes BIGINT,
+Comments BIGINT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/CA' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+
+---Canada END-------
+
+
+----India Start-----
+
+scp C:/Users/ssarkar4/YouTube/IN_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/IN
+hdfs dfs -put IN_youtube_trending_data.csv YouTube/IN
+hdfs dfs -ls YouTube/IN
+
+
+use ssarkar4;
+DROP TABLE IF EXISTS India;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS India(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category INT,
+Trending STRING,
+Tags STRING,
+View_count INT,
+Likes INT,
+Dislikes INT,
+Comments INT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/IN' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+
+---India ENDS---
+
+---Japan Start-----
+
+scp C:/Users/ssarkar4/YouTube/JP_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/JP
+hdfs dfs -put JP_youtube_trending_data.csv YouTube/JP
+hdfs dfs -ls YouTube/JP
+
+use ssarkar4;
+DROP TABLE IF EXISTS Japan;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS Japan(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category INT,
+Trending STRING,
+Tags STRING,
+View_count INT,
+Likes INT,
+Dislikes INT,
+Comments INT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/JP' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+---Japan END---
+
+
+---Korea Start---
+
+scp C:/Users/ssarkar4/YouTube/KR_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/KR
+hdfs dfs -put KR_youtube_trending_data.csv YouTube/KR
+hdfs dfs -ls YouTube/KR
+
+use ssarkar4;
+DROP TABLE IF EXISTS Korea;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS Korea(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category INT,
+Trending STRING,
+Tags STRING,
+View_count INT,
+Likes INT,
+Dislikes INT,
+Comments INT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/KR' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+---Korea END---
+
+---USA Start---
+
+scp C:/Users/ssarkar4/YouTube/US_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/US
+hdfs dfs -put US_youtube_trending_data.csv YouTube/US
+hdfs dfs -ls YouTube/US
+
+use ssarkar4;
+DROP TABLE IF EXISTS USA;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS USA(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category INT,
+Trending STRING,
+Tags STRING,
+View_count INT,
+Likes INT,
+Dislikes INT,
+Comments INT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/US' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+---USA END---
+
+---Russia Start---
+
+scp C:/Users/ssarkar4/YouTube/RU_youtube_trending_data.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/RU
+hdfs dfs -put RU_youtube_trending_data.csv YouTube/RU
+hdfs dfs -ls YouTube/RU
+
+use ssarkar4;
+DROP TABLE IF EXISTS Russia;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS Russia(
+Video_id STRING, 
+Title STRING, 
+Published STRING,
+Channel_id STRING,
+Channel_title STRING,
+category INT,
+Trending STRING,
+Tags STRING,
+View_count INT,
+Likes INT,
+Dislikes INT,
+Comments INT,
+Thumbnail STRING,
+Comment_des STRING,
+Ratings_des STRING,
+Description STRING
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4/YouTube/RU' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+---Russia END---
+
+
+-----DATA CLEANING FOR ALL SEVEN COUNTRIES START----
+
+---Brazil Start----
+
+DROP TABLE IF EXISTS BRCleanedTable;
+CREATE TABLE BRCleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM Brazil
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+  
+---Brazil END---
+
+---Canada Start---
+
+DROP TABLE IF EXISTS CACleanedTable;
+CREATE TABLE CACleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM Canada
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+  
+---Canada END---
+
+---India Start----
+
+DROP TABLE IF EXISTS INCleanedTable;
+CREATE TABLE INCleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM India
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+
+---India END---
+
+
+---Japan Start---
+
+DROP TABLE IF EXISTS JPCleanedTable;
+CREATE TABLE JPCleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM Japan
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+
+---Japan END---
+
+---Korea Start---
+
+DROP TABLE IF EXISTS KRCleanedTable;
+CREATE TABLE KRCleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM Korea
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+  
+---Korea END---
+
+---USA Start---
+
+DROP TABLE IF EXISTS USCleanedTable;
+CREATE TABLE USCleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM USA
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+  
+---USA END---
+
+---Russia Start---
+
+DROP TABLE IF EXISTS RUCleanedTable;
+CREATE TABLE RUCleanedTable AS
+SELECT
+  video_id,
+  title,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Published, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS published_date,
+  channel_id,
+  channel_title,
+  category,
+  DATE_FORMAT(FROM_UNIXTIME(UNIX_TIMESTAMP(Trending, 'yyyy-MM-dd\'T\'HH:mm:ss\'Z\'')), 'yyyy-MM-dd') AS trending_date,
+  tags,
+  view_count,
+  likes,
+  dislikes,
+  Comments
+FROM Russia
+WHERE Published IS NOT NULL
+  AND Trending IS NOT NULL;
+
+---Russia END---
+
+
+-----DATA CLEANING FOR ALL SEVEN COUNTRIES  ENDS----
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+#Objective 1:Top 10 trending Videos Worldwide
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-- Drop the table if it exists
+DROP TABLE IF EXISTS top10_trending_videos;
+
+-- Create the table
+CREATE TABLE top10_trending_videos
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE LOCATION 'YouTube/top10_trending_videos/'
+AS
+SELECT TRENDING_VIDEOS, popularity_score
+FROM (
+    SELECT title AS TRENDING_VIDEOS, 
+           popularity_score,
+           ROW_NUMBER() OVER (PARTITION BY title ORDER BY popularity_score DESC) as row_num
+    FROM (
+        -- Data from INCleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM INCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        -- Data from USCleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM USCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        -- Data from RUCleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM RUCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        -- Data from JPCleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM JPCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        -- Data from KRCleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM KRCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        -- Data from CACleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM CACleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        -- Data from BRCleanedTable
+        SELECT title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM BRCleanedTable
+        GROUP BY title
+    ) AS AllData
+) AS TrendingVideos
+WHERE row_num = 1
+ORDER BY popularity_score DESC
+LIMIT 10;
+
+--show table contents--
+SELECT * FROM top10_trending_videos;
+
+---Load the results for Visualization----
+hdfs dfs -ls YouTube/top10_trending_videos
+hdfs dfs -get YouTube/top10_trending_videos/000000_0 top10_trending_videos.csv
+ls -al
+
+scp ssarkar4@129.153.66.218:/home/ssarkar4/top10_trending_videos.csv top10_trending_videos.csv
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+# Objective 2:Most Trending video of individual countries
+----------------------------------------------------------------------------------------------------------------------------------------
+-- Drop the table if it exists
+DROP TABLE IF EXISTS top_trending_video_country_wise;
+
+-- Create the table
+CREATE TABLE top_trending_video_country_wise
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE LOCATION 'YouTube/top_trending_video_country_wise/'
+AS
+SELECT country, title AS TRENDING_VIDEO, popularity_score
+FROM (
+    SELECT country, title, popularity_score,
+           ROW_NUMBER() OVER (PARTITION BY country ORDER BY popularity_score DESC) AS video_rank
+    FROM (
+        -- Union of aggregated data from multiple country tables
+        SELECT 'Brazil' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM BRCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        SELECT 'India' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM INCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        SELECT 'United States' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM USCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        SELECT 'Russia' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM RUCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        SELECT 'Japan' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM JPCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        SELECT 'South Korea' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM KRCleanedTable
+        GROUP BY title
+
+        UNION ALL
+
+        SELECT 'Canada' AS country, title, 
+               SUM(view_count + likes + dislikes + Comments) AS popularity_score
+        FROM CACleanedTable
+        GROUP BY title
+    ) AS CountryData
+) AS RankedVideos
+WHERE video_rank = 1;
+
+---show table---
+SELECT * FROM top_trending_video_country_wise;
+
+---Load the results for Visualization----
+hdfs dfs -ls YouTube/top_trending_video_country_wise
+hdfs dfs -getmerge YouTube/top_trending_video_country_wise/ top_trending_video_country_wise.csv
+ls -al
+
+scp ssarkar4@129.153.66.218:/home/ssarkar4/top_trending_video_country_wise.csv top_trending_video_country_wise.csv
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+# Objective 3: Top-20 MOST VIEWED channels IN the USA
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-- Drop the table if it exists
+DROP TABLE IF EXISTS top_viewed_channels;
+ 
+-- Create the top_viewed_channels table by selecting from the existing table
+CREATE TABLE top_viewed_channels
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE LOCATION 'YouTube/top_viewed_channels/'
+AS
+    SELECT
+        Channel_id,
+        Channel_title,
+        SUM(view_count) AS total_views
+    FROM USCleanedTable  -- Replace with the actual name of your existing table
+    GROUP BY Channel_id, Channel_title
+    ORDER BY total_views DESC
+    LIMIT 20;  -- Adjust the limit to get the top N most viewed channels
+
+show tables;
+describe formatted top_viewed_channels;
+select channel_title,total_views from top_viewed_channels;
+
+---Load the results for Visualization----
+hdfs dfs -ls YouTube/top_viewed_channels
+hdfs dfs -get YouTube/top_viewed_channels/000000_0 top_viewed_channels.csv
+ls -al
+
+scp ssarkar4@129.153.66.218:/home/ssarkar4/top_viewed_channels.csv top_viewed_channels.csv
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+# Objective 4: Top VIEWED channels IN the USA YEAR WISE
+----------------------------------------------------------------------------------------------------------------------------------------
+
+DROP TABLE top_viewed_channels_by_year;
+
+CREATE TABLE top_viewed_channels_by_year
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION 'YouTube/top_viewed_channels_by_years/'
+AS
+SELECT
+    Channel_title,
+    total_views,
+    year
+FROM (
+    SELECT
+        Channel_title,
+        SUM(view_count) AS total_views,
+        YEAR(published_date) AS year,
+        ROW_NUMBER() OVER (PARTITION BY YEAR(published_date) ORDER BY SUM(view_count) DESC) AS rnk
+    FROM USCleanedTable
+    WHERE published_date IS NOT NULL
+    GROUP BY Channel_title, YEAR(published_date)
+) ranked
+WHERE rnk = 1
+ORDER BY year;
+
+SELECT * FROM top_viewed_channels_by_year;
+
+show tables;
+describe formatted top_viewed_channels_by_year;
+select channel_title,total_views from top_viewed_channels_by_year;
+
+
+---Load the results for Visualization----
+hdfs dfs -ls YouTube/top_viewed_channels_by_years
+hdfs dfs -get YouTube/top_viewed_channels_by_years/000000_0 top_viewed_channels_by_years.csv
+ls -al
+
+scp ssarkar4@129.153.66.218:/home/ssarkar4/top_viewed_channels_by_years.csv top_viewed_channels_by_years.csv
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+# Objective 5: Most searched words as Video Tags IN INDIA 
+----------------------------------------------------------------------------------------------------------------------------------------
+Occurence of words(size>2) in tags and there frequency.
+
+DROP TABLE IF EXISTS top_tags_frequency;
+	
+-- Drop the table if it already exists
+DROP TABLE IF EXISTS top_tags_frequency;
+
+-- Create the table
+CREATE TABLE top_tags_frequency
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+LOCATION 'YouTube/top_tags_frequency/'
+AS
+SELECT
+    words_in_tags,
+    COUNT(words_in_tags) AS frequency
+FROM (
+    SELECT
+        EXPLODE(SPLIT(LOWER(CONCAT(tags, '|')), '[^a-zA-Z0-9]+')) AS words_in_tags
+    FROM
+        INCleanedTable
+) expanded_tags
+WHERE
+    LENGTH(words_in_tags) > 2 AND words_in_tags IS NOT NULL AND words_in_tags != 'none'
+GROUP BY
+    words_in_tags
+ORDER BY
+    frequency DESC
+LIMIT
+    20;
+
+----show table---
+SELECT * FROM top_tags_frequency;
+
+
+---Load the results for Visualization----
+
+hdfs dfs -ls YouTube/top_tags_frequency
+hdfs dfs -get YouTube/top_tags_frequency/000000_0 top_tags_frequency.csv
+ls -al
+
+scp ssarkar4@129.153.66.218:/home/ssarkar4/top_tags_frequency.csv top_tags_frequency.csv
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+# Objective 6: Most VIEWED Category of Videos in all countries Year WISE(2020-2023)
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------Creating table for categories-------------------
+
+scp C:/Users/ssarkar4/YouTube/category.csv ssarkar4@129.153.66.218:/home/ssarkar4
+hdfs dfs -mkdir YouTube/category
+hdfs dfs -put category.csv YouTube/category
+hdfs dfs -ls YouTube/category
+
+DROP TABLE IF EXISTS categories;
+CREATE EXTERNAL TABLE IF NOT EXISTS categories (
+    category_id INT,
+    category_name STRING
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE LOCATION '/user/ssarkar4//YouTube/category' 
+TBLPROPERTIES ('skip.header.line.count'='1');
+
+
+
+
+-- Drop the table if it exists
+DROP TABLE IF EXISTS top_viewed_categories;
+
+-- Create the top_viewed_categories table by selecting from the existing CTE
+CREATE TABLE top_viewed_categories
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE LOCATION 'YouTube/top_viewed_categories/'
+AS
+WITH RankedCategories AS (
+  SELECT
+    country,
+    YEAR(published_date) AS year,
+    category,
+    COUNT(*) AS category_occurrences,
+    ROW_NUMBER() OVER (PARTITION BY country, YEAR(published_date) ORDER BY COUNT(*) DESC) AS category_rank
+  FROM (
+    SELECT 'India' AS country, * FROM INCleanedTable
+    UNION ALL
+    SELECT 'USA' AS country, * FROM USCleanedTable
+    UNION ALL
+    SELECT 'Russia' AS country, * FROM RUCleanedTable
+    UNION ALL
+    SELECT 'Brazil' AS country, * FROM BRCleanedTable
+    UNION ALL
+    SELECT 'Japan' AS country, * FROM JPCleanedTable
+    UNION ALL
+    SELECT 'South Korea' AS country, * FROM KRCleanedTable
+    UNION ALL
+    SELECT 'Canada' AS country, * FROM CACleanedTable
+  ) AS CombinedTables
+  WHERE category IS NOT NULL
+  GROUP BY country, YEAR(published_date), category
+)
+
+SELECT
+  country,
+  year,
+  category_name,
+  category,
+  category_occurrences
+FROM RankedCategories rc
+JOIN categories c ON rc.category = c.category_id
+WHERE category_rank = 1
+ORDER BY country, year;
+
+---show table---
+select * from top_viewed_categories;
+
+---Load the results for Visualization----
+
+hdfs dfs -ls YouTube/top_viewed_categories
+hdfs dfs -get YouTube/top_viewed_categories/000000_0 top_viewed_categories.csv
+ls -al
+
+scp ssarkar4@129.153.66.218:/home/ssarkar4/top_viewed_categories.csv top_viewed_categories.csv
+
+
+
+
+------------------------------------------------------------------END--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
