@@ -1,4 +1,4 @@
-# YouTube Trending Videos Analysis Using Hadoop
+# YouTube Trending Videos Analysis Using Hadoop & Hive
 
 ## Project Overview
 This project leverages Hadoop and Hive to analyze trending YouTube videos across multiple countries from 2020 to 2023. By examining factors such as viewer engagement, video categories, and sentiment analysis, the project aims to uncover patterns in audience preferences and provide actionable insights for content creators and marketers.
@@ -71,9 +71,12 @@ Download the YouTube trending videos dataset from Kaggle and upload it to HDFS.
 
 ## Results
 The analysis highlighted significant trends in viewer engagement and preferences for YouTube content across different regions. Key findings include:
-- The most viewed videos were often linked to trending topics and popular creators.
-- Viewer engagement varied significantly by country, influencing content creation strategies.
-- Visualizations facilitated a clear understanding of audience behavior and content performance.
+- Most trending videos worldwide in last 4 years is ‘Turn into Orbeez – Tutorial.’
+- Most of the trending videos worldwide are originated from South Korea, such as BTS – 15%, Blackpink- 23% and Jisoo & Jung Kook- 18%
+- Most viewed channel in USA in last 4 years is ‘MrBeast’ (18.9 billion views)
+- In USA, most watched channel from 2020-2023 are MrBeast, Blackpink, FFunTv & Big Hit Labels respectively.
+- New, Song, Comedy, Video etc. are the most frequent searched words in last 4 years in INDIA.
+- In last 4 years, all countries are mostly inclinedtowards ‘Entertainment’ category of their most watched videos
 
 ## Contact Information
 For questions or feedback, please contact:
