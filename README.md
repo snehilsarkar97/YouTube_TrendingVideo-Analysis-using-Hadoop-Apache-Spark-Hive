@@ -72,11 +72,11 @@ Download the YouTube trending videos dataset from Kaggle and upload it to HDFS.
 ## Results
 The analysis highlighted significant trends in viewer engagement and preferences for YouTube content across different regions. Key findings include:
 - Most trending videos worldwide in last 4 years is ‘Turn into Orbeez – Tutorial.’
-- Most of the trending videos worldwide are originated from South Korea, such as BTS – 15%, Blackpink- 23% and Jisoo & Jung Kook- 18%
+- Most of the trending videos worldwide are originated from South Korea, such as BTS with an engagement score of – 15%, Blackpink- 23% and Jisoo & Jung Kook- 18%
 - Most viewed channel in USA in last 4 years is ‘MrBeast’ (18.9 billion views)
 - In USA, most watched channel from 2020-2023 are MrBeast, Blackpink, FFunTv & Big Hit Labels respectively.
 - New, Song, Comedy, Video etc. are the most frequent searched words in last 4 years in INDIA.
-- In last 4 years, all countries are mostly inclinedtowards ‘Entertainment’ category of their most watched videos
+- In last 4 years, all countries are mostly inclined towards ‘Entertainment’ category of their most watched videos.
 
 ## Contact Information
 For questions or feedback, please contact:
