@@ -83,6 +83,5 @@ For questions or feedback, please contact:
 
 - **Snehil Sarkar**: [snehil.sarkar100@gmail.com](mailto:snehil.sarkar100@gmail.com)
 - **Sapan Shah**: [sshah82@calstatela.edu](mailto:sshah82@calstatela.edu)
-- **Sai Sridhar Karri**: [skarri2@calstatela.edu](mailto:skarri2@calstatela.edu)
-- **Kaushik N Adhikari**: [kadhika3@calstatela.edu](mailto:kadhika3@calstatela.edu)
+
 
